@@ -1,12 +1,15 @@
 /* eslint-disable import/extensions */
 import express from 'express';
 import database from './config/database.js';
+import routes from './app/routes.js';
 
 const app = express();
-const PORT = 3333;
+app.use(routes);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+const PORT = 8000;
+
+app.get('/', (_, res) => {
+  res.send('Olá mundo!');
 });
 
 app.listen(PORT, () => {
